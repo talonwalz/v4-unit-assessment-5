@@ -38,7 +38,19 @@ module.exports = {
       }
     },
     createPost: (req, res) => {
-      //code here
+      const db = req.app.get('db')
+      const { id } = req.session.user.id
+      const { title, img, content } = req.body
+      const date = new Date 
+      if (id) {
+        db.post.create_post([id, title, img, content, date])
+        .then(post => res.status(200).send(post))
+      } else {
+        
+        return res.status(403).send('You must be signed in')
+        .catch(err => console.log(err))
+      }
+       
     },
     readPost: (req, res) => {
       req.app.get('db').post.read_post(req.params.id)
