@@ -9,6 +9,7 @@ const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 const app = express();
 
 app.use(express.json());
+
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,

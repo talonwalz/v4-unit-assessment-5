@@ -19,7 +19,7 @@ module.exports = {
             req.session.user = newUSer
 
             // Not sure if I need to send newUser back
-            res.status(200).send(newUSer)
+            res.status(200).send(req.session.user)
         } catch(err) {
             console.log(err)
             res.sendStatus(500)

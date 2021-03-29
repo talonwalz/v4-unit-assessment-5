@@ -16,8 +16,11 @@ class Form extends Component {
 
   submit() {
     axios.post('/api/post', this.state)
-      .then(() => 'replace this string with something useful')
-      this.props.history.push('/dash')
+
+    .then(() => this.props.history.push('/dash'))
+
+      // .then(() => 'replace this string with something useful')
+      // this.props.history.push('/dash')
       .catch((err) => console.log(err))
   }
   
@@ -42,7 +45,7 @@ class Form extends Component {
             <textarea value={this.state.content} onChange={e => this.setState({ content: e.target.value })} />
           </div>
         </div>
-        <button onClick={this.submit} className='dark-button'>Post</button>
+        <button onClick={this.submit} className='dark-button post-button'>Post</button>
       </div>
     );
   }

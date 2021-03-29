@@ -1,2 +1,2 @@
 DELETE from helo_posts
-WHERE id = 'id'
+WHERE id = $1
